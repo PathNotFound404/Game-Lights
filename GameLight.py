@@ -3,15 +3,13 @@ import json
 from time import sleep
 import requests
 import uuid
+import config
 
-
-
-API_KEY = '4440531d-e039-4dcf-9b60-406486bae545'
-geturl = 'https://openapi.api.govee.com/router/api/v1/user/devices'
+#url to post requst
 posturl = 'https://openapi.api.govee.com/router/api/v1/device/control'
 
-#List of device ID numbers of the lights to change
-devices = ["00:68:D4:AD:FC:E6:F3:4E","FB:EA:D4:AD:FC:E6:F6:74"]
+
+
 
 
 
@@ -19,12 +17,12 @@ devices = ["00:68:D4:AD:FC:E6:F3:4E","FB:EA:D4:AD:FC:E6:F6:74"]
 def change_color(r, g, b,):
     color = ((r & 0xFF) << 16) | ((g & 0xFF) << 8) | ((b & 0xFF) << 0)
 
-    for d in devices:
+    for d in config.devices:
         request_id = str(uuid.uuid4())
 
         headers = {
             'Content-Type': 'application/json',
-            'Govee-API-Key': API_KEY
+            'Govee-API-Key': config.api_key
         }
 
         payload = {
