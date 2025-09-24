@@ -7,7 +7,7 @@ import config
 from PIL import ImageGrab
 import numpy as np
 
-#url to post requst
+#url to post request
 posturl = 'https://openapi.api.govee.com/router/api/v1/device/control'
 
 
@@ -82,11 +82,9 @@ def get_avg_color() -> int:
 
 
 
-while(True):
+while True:
     change_color(int(get_avg_color()))
     print(get_avg_color())
-    x = x + 1
 
 
 
-print("done")
