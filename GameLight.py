@@ -58,6 +58,8 @@ def get_avg_color() -> int:
     img_arr = np.frombuffer(img.tobytes(), dtype=np.uint8)
     img_arr = img_arr.reshape((img.size[1], img.size[0], 3))
 
+
+    """"Speed this up using mean and int casting"""
     ##Get avg color of image
     step = 25
     num_pixels = 1080//step * 1920//step
@@ -80,19 +82,11 @@ def get_avg_color() -> int:
 
 
 
-
-##change_color(255,0,0)
-##sleep(1)
-##change_color(0,255,0)
-##sleep(1)
-##change_color(0,0,255)
-
-x = 0
 while(True):
     change_color(int(get_avg_color()))
     print(get_avg_color())
     x = x + 1
-    ##sleep(1)
+
 
 
 print("done")
